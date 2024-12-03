@@ -37,7 +37,7 @@ public class KeywordsDetector {
 
                     if(str1.indexOf(str2) != -1) {
 
-                        System.out.println(str1);
+                        System.out.println(toUUpercaseforstrings(str1));
 
                         break;
 
@@ -90,5 +90,31 @@ public class KeywordsDetector {
     return newString;
 
     }
+
+public static String toUUpercaseforstrings(String str) { 
+
+    String newString = "";
+
+    for(int i = 0; i < str.length(); i++) {
+
+        char c = str.charAt(i);
+
+        int asciiOfchar = c;
+
+            if((asciiOfchar >= 97 && asciiOfchar <= 122) ) { 
+
+                c = (char) (c - 32);
+
+            } else if(asciiOfchar >= 65 && asciiOfchar <= 90 || asciiOfchar == 32) { 
+
+                newString += c;
+
+            }
+        
+            
+    }
+return newString;
+
+}
 
 }
