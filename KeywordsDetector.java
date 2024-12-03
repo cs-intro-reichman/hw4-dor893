@@ -16,11 +16,79 @@ public class KeywordsDetector {
         // Some keywords that typically signal bullshit contents in business presentations 
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         detectAndPrint(sentences, keywords);
+
     }
 
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+
+        String[] lowSentences = toLowercaseforarrays(sentences);
+
+        String[] lowKeywords = toLowercaseforarrays(keywords);
+        
+        for(int i = 0; i < lowSentences.length; i++) {
+           
+            String str1 = lowSentences[i];
+
+            for(int j = 0; j < lowKeywords.length; j++) {
+
+                String str2 = lowKeywords[j];
+
+                    if(str1.indexOf(str2) != -1) {
+
+                        System.out.println(str1);
+
+                        break;
+
+                    }
+
+            }
+
+        }
+
     }
+    
+    
+    public static String[] toLowercaseforarrays(String[] arr) { 
+
+        String[] newArray = new String[arr.length];
+        
+        for(int j = 0; j < arr.length; j++) {
+
+            String strOfarr = arr[j];
+
+            newArray[j] = toLowercaseforstrings(strOfarr);
+        }
+
+    return newArray;
+
+    }
+
+
+    public static String toLowercaseforstrings(String str) { 
+
+        String newString = "";
+
+        for(int i = 0; i < str.length(); i++) {
+
+            char c = str.charAt(i);
+
+            int asciiOfchar = c;
+
+                if(asciiOfchar >= 65 && asciiOfchar <= 90) { // upper case
+
+                   c = (char) (c + 32);
+
+                   newString += c;
+            
+                } else if ((asciiOfchar >= 97 && asciiOfchar <= 122) || asciiOfchar == 32) { //lower case or tab
+
+                    newString += c;
+                }
+        }
+    return newString;
+
+    }
+
 }
