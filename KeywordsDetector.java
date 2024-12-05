@@ -35,14 +35,14 @@ public class KeywordsDetector {
 
                 String str2 = lowKeywords[j];
 
-                    if(str1.indexOf(str2) != -1) {
+                if(containsWord(str1,str2) == true) {
+                    
+                    System.out.println(sentences[i]);
 
-                        System.out.println(toUUpercaseforstrings(str1));
-
-                        break;
-
-                    }
-
+                    break;
+                    
+                }
+                    
             }
 
         }
@@ -91,30 +91,37 @@ public class KeywordsDetector {
 
     }
 
-public static String toUUpercaseforstrings(String str) { 
 
-    String newString = "";
-
-    for(int i = 0; i < str.length(); i++) {
-
-        char c = str.charAt(i);
-
-        int asciiOfchar = c;
-
-            if((asciiOfchar >= 97 && asciiOfchar <= 122) ) { 
-
-                c = (char) (c - 32);
-
-            } else if(asciiOfchar >= 65 && asciiOfchar <= 90 || asciiOfchar == 32) { 
-
-                newString += c;
-
-            }
+    public static boolean containsWord(String str1, String str2) {
         
-            
-    }
-return newString;
+        int len1 = str1.length();
+        
+        int len2 = str2.length();
 
-}
+        for (int i = 0; i <= len1 - len2; i++) {
+            
+            boolean match = true;
+            
+            for (int j = 0; j < len2; j++) {
+                
+                if (str1.charAt(i + j) != str2.charAt(j)) {
+                   
+                    match = false;
+                   
+                    break;
+               
+                }
+            
+            }
+
+            if (match) {
+               
+                return true;  
+                
+            }
+        }
+
+        return false;  
+    }
 
 }
