@@ -74,49 +74,33 @@ public class MyString {
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
 
-        if(str2.length() == 0) {
-
-            return true;
-
-        }
-
-        String lowStr1 = lowerCasewithouttab(str1);
-
-        String lowStr2 = lowerCasewithouttab(str2);
-
-        if(lowStr2.length() > lowStr1.length()) {
-
-            return false;
-
-        }
-
-        int index = lowStr1.length() - lowStr2.length();
+        int len1 = str1.length();
         
-        for(int j = 0; j < index; j ++) {
+        int len2 = str2.length();
 
-            if(lowStr2.charAt(0) == lowStr1.charAt(j)) {
-
-                boolean doesCont = true;
+        for (int i = 0; i <= len1 - len2; i++) {
+            
+            boolean match = true;
+            
+            for (int j = 0; j < len2; j++) {
                 
-                for (int t = 0; t < lowStr2.length(); t++) {
-
-                    if(lowStr2.charAt(t) != lowStr1.charAt(t + j)) {
-
-                    doesCont = false;
-
+                if (str1.charAt(i + j) != str2.charAt(j)) {
+                   
+                    match = false;
+                   
                     break;
-
-                    }
-
+               
                 }
             
-              if(doesCont) {
+            }
 
-                  return true;
-              }
+            if (match) {
+               
+                return true;  
+                
             }
         }
 
-        return false;
+        return false;  
     }
 }
