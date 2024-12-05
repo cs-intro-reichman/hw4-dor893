@@ -24,6 +24,7 @@ public class ArrCharOps {
         System.out.println(hashCode(arr2));
 
         System.out.println(compareTo("abc", "abcd"));
+
     }
 
     /** Prints the given array of characters, and moves the cursor to the next line.
@@ -286,13 +287,13 @@ public class ArrCharOps {
 
         if (str1.length() == 0) {
            
-            return -1; 
+            return -2; 
         
         } else if (str2.length() == 0) {
           
-            return 1; 
+            return -2; 
             
-        }
+        } 
 
         for(int i = 0; i < str1.length() && i < str2.length(); i++) {
 
