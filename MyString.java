@@ -74,19 +74,19 @@ public class MyString {
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
 
-        int len1 = str1.length();
+        int length1 = str1.length();
         
-        int len2 = str2.length();
+        int length2 = str2.length();
 
-        for (int i = 0; i <= len1 - len2; i++) {
+        for (int i = 0; i <= length1 - length2; i++) {
             
-            boolean match = true;
+            boolean found = true;
             
-            for (int j = 0; j < len2; j++) {
+            for (int j = 0; j < length2; j++) {
                 
                 if (str1.charAt(i + j) != str2.charAt(j)) {
                    
-                    match = false;
+                    found = false;
                    
                     break;
                
@@ -94,7 +94,7 @@ public class MyString {
             
             }
 
-            if (match) {
+            if (found) {
                
                 return true;  
                 
